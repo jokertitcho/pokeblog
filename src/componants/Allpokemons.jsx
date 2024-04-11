@@ -22,7 +22,18 @@ const Allpokemons = ()=>{
             return (
                 <>
                     <p key={pok.id}>{pok.name}</p>
-                    <Link to={`/pokemon-details/${pok.id}`}>Voir les details de ce pokemon</Link>
+
+                    <p>{pok.apiTypes.map((type)=>{
+                        return (
+                            <p key={type.name}>
+                                <Link to={`/pokemon-by-Types/${type.name}`}> de type {type.name} </Link>
+                                
+                            </p>
+                            
+                        )
+                    })}</p>
+                    
+                    <p><Link to={`/pokemon-details/${pok.id}`}>Voir les details de ce pokemon</Link></p>
                 </>
                 
             )
