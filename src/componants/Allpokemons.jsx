@@ -14,34 +14,38 @@ const Allpokemons = ()=>{
 
     }, [])
     
-
-
     return(
         <div>
         {arrAllPok.map((pok)=>{
             return (
                 <>
                     <p key={pok.id}>{pok.name}</p>
-
                     <p>{pok.apiTypes.map((type)=>{
                         return (
-                            <p key={type.name}>
-                                <Link to={`/pokemon-by-Types/${type.name}`}> de type {type.name} </Link>
+                            <div key={type.name}>
+                                <p >
+                                    <Link to={`/pokemon-by-Types/${type.name}`}> de type {type.name} </Link>    
+                                </p>
+                               
+                            </div>
+                             
+                        )
+                    })}</p> 
+                    <p>{pok.apiTypes.map((type)=>{
+                        return (
+                            <div key={type.name}>
                                 
-                            </p>
-                            
+                                <p>
+                                    <Link to={`/resitance-Types/${type.name}`}>Les pokemons qui contre les type {type.name}</Link>
+                                </p>
+                            </div>
+                             
                         )
                     })}</p>
-                    
                     <p><Link to={`/pokemon-details/${pok.id}`}>Voir les details de ce pokemon</Link></p>
-                </>
-                
+                </>      
             )
-        })}
-        
-        
-        
-        
+        })}   
         </div>
     )
 }
